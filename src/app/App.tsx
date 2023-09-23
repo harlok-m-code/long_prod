@@ -1,12 +1,12 @@
 import React, { useContext, useState } from 'react'
 import './styles/index.scss'
 import { Route, Routes, Link } from 'react-router-dom'
-import Loading from './pages/Loading'
+import Loading from '../pages/Loading'
 import { Suspense } from 'react'
-import {AsyncMainPage} from './pages/MainPage/AsyncMainPage'
-import { AsyncAboutPage } from './pages/AboutPage/AsyncAboutPage'
-import { useTheme } from './theme/useTheme'
-import { classNames } from './helpers/classnames/className'
+import { MainPage } from '../pages/MainPage/UI/index'
+import { AboutPage } from 'pages/AboutPage/UI'
+import { useTheme } from './provider/ThemePRovider'
+import { classNames } from '../shared/lib/classnames/className'
 
 
 
@@ -22,8 +22,8 @@ function App() {
       <Link to={'/about'} >About Site</Link>
       <Suspense fallback={<Loading />}>
           <Routes>
-            <Route path='/about' element={<AsyncAboutPage/>}/>
-            <Route path='/' element={<AsyncMainPage/>}/>
+            <Route path='/about' element={<AboutPage/>}/>
+            <Route path='/' element={<MainPage/>}/>
           </Routes>
       </Suspense>
       
